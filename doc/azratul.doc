@@ -1,0 +1,13 @@
+================================================================================
+                                                                *code_executor.nvim*
+
+code_executor.nvim is a plugin for execute code in any language. WIP.
+
+To find out more:
+https://github.com/azratul/code_executor.nvim
+
+:h CodeExecutor
+
+CodeExecutor                                                *CodeExecutor*
+    Just say "Hello world!!"
+================================================================================
