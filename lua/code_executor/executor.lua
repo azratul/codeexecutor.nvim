@@ -9,10 +9,15 @@ function M.setup(config)
 end
 
 function M.run(file)
-    pcall(cmd, 'split go-terminal')
+    path, filename, ext = M.splitFilename(file)
+    pcall(cmd, 'split terminal')
     pcall(cmd, 'resize 10')
-    fn.termopen('bash -c "' .. conf.go['command'] .. ' ' .. file .. '"')
-    print('Enter the matrix...')
+    fn.termopen('bash -c "' .. conf[ext]['command'] .. ' ' .. file .. '"')
+    print('Running...')
+end
+
+function M.splitFilename(strFilename)
+    return string.match(strFilename, "(.-)([^\\]-([^\\%.]+))$")
 end
 
 return M
