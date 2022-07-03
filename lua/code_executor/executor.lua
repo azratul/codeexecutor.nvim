@@ -8,16 +8,20 @@ function M.setup(config)
     conf = config
 end
 
-function M.run(file)
-    path, filename, ext = M.splitFilename(file)
-    pcall(cmd, 'split terminal')
-    pcall(cmd, 'resize 10')
-    fn.termopen('bash -c "' .. conf[ext]['command'] .. ' ' .. file .. '"')
-    print('Running...')
+local function splitFilename(strFilename)
+    return string.match(strFilename, "(.-)([^\\]-([^\\%.]+))$")
 end
 
-function M.splitFilename(strFilename)
-    return string.match(strFilename, "(.-)([^\\]-([^\\%.]+))$")
+function M.run(file)
+    local _, _, ext = splitFilename(file)
+    if conf[ext] ~= nil then
+        pcall(cmd, 'split terminal')
+        pcall(cmd, 'resize 10')
+        fn.termopen('bash -c "' .. conf[ext]['command'] .. ' ' .. file .. '"')
+        print('Running...')
+    else
+        print('No command for this file type')
+    end
 end
 
 return M
