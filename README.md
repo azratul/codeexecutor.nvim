@@ -9,6 +9,9 @@ Add this lines into your neovim/nvchad/lunarvim/astrovim config file
 Example for a golang service:
 
 
+> You can do the same for any language
+
+
 ```
     {
         "azratul/codeexecutor.nvim",
@@ -18,4 +21,12 @@ Example for a golang service:
             },
         })
     },
+```
+
+
+The execute the command with:
+
+
+```
+:CodeExecutor your_golang_main_file.go
 ```
