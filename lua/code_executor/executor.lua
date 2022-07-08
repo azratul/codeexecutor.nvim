@@ -4,7 +4,7 @@ local cmd = vim.cmd
 local fn = vim.fn
 local conf = {}
 
-BufferName = 10000
+BufferName = ""
 
 function M.setup(config)
     conf = config
