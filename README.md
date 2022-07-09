@@ -24,9 +24,17 @@ Example for a golang service:
 ```
 
 
-The execute the command with:
+Execute the command with:
 
 
 ```
-:CodeExecutor your_golang_main_file.go
+:CodeExecutorStart your_golang_main_file.go
+```
+
+
+Stop and close the buffer with:
+
+
+```
+:CodeExecutorStop
 ```
