@@ -1,0 +1,4 @@
+CodeExecutorStart	code_executor.txt	/*CodeExecutorStart*
+CodeExecutorStop	code_executor.txt	/*CodeExecutorStop*
+CodeExecutorCommands	code_executor.txt	/*code_executor_commands*
+CodeExecutorSettings	code_executor.txt	/*code_executor_settings*

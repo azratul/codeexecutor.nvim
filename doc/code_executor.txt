@@ -1,0 +1,45 @@
+*code_executor.txt*
+===================================================================================
+CONTENTS                                                     *code_executor.nvim*
+
+
+code_executor.nvim is a plugin for execute code in any language. WIP.
+
+    1. Commands..........................................|code_executor_commands|
+    2. Settings..........................................|code_executor_settings|
+
+To find out more:
+https://github.com/azratul/code_executor.nvim
+
+===================================================================================
+COMMANDS                                                     *code_executor_commands*
+
+
+:CodeExecutorStart [file]                                    *CodeExecutorStart*
+    The command to start the code executor service(must be defined in you vim config).
+    Eg. :CodeExecutorStart cmd/main.go
+
+
+:CodeExecutorStop                                            *CodeExecutorStop*
+    Stop and close the buffer with the service
+    Eg. :CodeExecutorStop
+
+
+===================================================================================
+SETTINGS                                                     *code_executor_settings*
+
+
+You need to add this lines into your config file:
+    Short example:
+>
+    require("code_executor").setup({
+      go = {
+          command = ". .env.dev && go run",
+      },
+      js = {
+          command = "npm run start",
+      },
+    })
+<
+===================================================================================
+vim:ft=help:et:ts=2:sw=2:sts=2:norl
