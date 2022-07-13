@@ -11,15 +11,22 @@ function M.setup(config)
 end
 
 local function splitFilename(strFilename)
-    return string.match(strFilename, "(.-)([^\\]-([^\\%.]+))$")
+    local s = strFilename:match("^.+(%..+)$")
+
+    if s ~= nil then
+        return s:sub(2), strFilename
+    end
+
+    return strFilename, ""
 end
 
 function M.run(file)
-    local _, _, ext = splitFilename(file)
+    local ext, filename = splitFilename(file)
+
     if conf[ext] ~= nil then
         pcall(cmd, 'split running-app')
         pcall(cmd, 'resize 10')
-        fn.termopen('bash -c "' .. conf[ext]['command'] .. ' ' .. file .. '"')
+        fn.termopen('bash -c "' .. conf[ext]['command'] .. ' ' .. filename .. '"')
         pcall(cmd, 'normal G')
         BufferName = vim.api.nvim_buf_get_name(0)
         print('Running...')
