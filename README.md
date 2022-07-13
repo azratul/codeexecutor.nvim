@@ -38,3 +38,11 @@ Stop and close the buffer with:
 ```
 :CodeExecutorStop
 ```
+
+
+Access the documentation inside vim:
+
+
+```
+:h CodeExecutor
+```
